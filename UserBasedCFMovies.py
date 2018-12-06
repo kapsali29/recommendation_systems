@@ -37,7 +37,7 @@ class UserBasedCFMovies(object):
         pred = user_mean_ratings + (np.dot(sims, ratings_diff).T / user_sims).T
         return pred
 
-    def recomment(self, user_index):
+    def recommend(self, user_index):
         predictions = self.predict()
         user = self.users_movies[user_index, :]
         pred_user = predictions[user_index, :]
@@ -50,4 +50,4 @@ class UserBasedCFMovies(object):
 u = UserBasedCFMovies()
 u.transform_ids()
 u.construct_array()
-u.recomment(2)
+u.recommend(2)
